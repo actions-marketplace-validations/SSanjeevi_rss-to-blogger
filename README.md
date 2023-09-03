@@ -46,6 +46,6 @@ jobs:
            RSSFeedUrl: 'https://techcommunity.microsoft.com/plugins/custom/microsoft/o365/custom-blog-rss?tid=-189242975710986885&board=FastTrackforAzureBlog&size=355'
            FeedArticleStartCount: '66'
            FeedArticleEndCount: '67'
-           Labels: 'azure'
+           Labels: 'azure,cloud,microsoft'
            ApiKey: ${{ secrets.ApiKey }}
 ```
