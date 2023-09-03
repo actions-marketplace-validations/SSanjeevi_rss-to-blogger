@@ -20,8 +20,8 @@ namespace BlogRssFeed
         {
             try
             {
-                this.Name = "Create";
-                this.Description = "Create Name";
+                this.Name = "Create Article";
+                this.Description = "Create Articles from rss";
 
                 CommandOption authCredentialsOption = this.Option("--auth-Credentials <authCredentialsOption>", "Auth Credentials json", CommandOptionType.SingleValue);
 
