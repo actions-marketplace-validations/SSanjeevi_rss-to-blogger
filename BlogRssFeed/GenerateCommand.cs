@@ -76,7 +76,7 @@ namespace BlogRssFeed
                 Console.WriteLine(feed.Items.Count<SyndicationItem>() + " Items found in feed. starting pushing from " + startCount + " to " + this.feedArticleEndCountInt);
 
                 //Loop through all items in the SyndicationFeed
-                for (int i = startCount; i < this.feedArticleEndCountInt | i < feed.Items.Count<SyndicationItem>(); i++)
+                for (int i = startCount; i < this.feedArticleEndCountInt && i < feed.Items.Count<SyndicationItem>(); i++)
                 {
                     BlogPost bp = new BlogPost
                     {

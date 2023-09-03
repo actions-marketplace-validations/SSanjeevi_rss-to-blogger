@@ -39,7 +39,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
         - name: Rss-feed-to-Blogger-action
-          uses: SSanjeevi/rss-to-blogger@release-1.14
+          uses: SSanjeevi/rss-to-blogger@main
           with:
            GOOGLE_CREDENTIALS_Json: ${{ secrets.GOOGLE_CREDENTIALS_Json }}
            BloggerId: '4243659437681898774'
