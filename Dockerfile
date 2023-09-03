@@ -1,6 +1,6 @@
 # Build SDK image
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
-WORKDIR /app
+WORKDIR /BlogRssFeed
  
 # Copy everything from the project folder
 # to the /app working directory inside this image
