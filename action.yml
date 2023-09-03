@@ -32,17 +32,17 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - "--auth-Credentials"
+    - "-c"
     - ${{ inputs.GOOGLE_CREDENTIALS_Json }}
-    - "--blogger-Id"
+    - "-i"
     - ${{ inputs.BloggerId }}
-    - "--labels"
+    - "-l"
     - ${{ inputs.Labels }}
-    - "--rSS-Feed-Url"
+    - "-r"
     - ${{ inputs.RSSFeedUrl }}
-    - "--feed-Article-Start-Count"
+    - "-s"
     - ${{ inputs.FeedArticleStartCount }}
-    - "--feed-Article-End-Count"
+    - "-e"
     - ${{ inputs.FeedArticleEndCount }}
-    - "--api-key"
+    - "-k"
     - ${{ inputs.ApiKey }}
