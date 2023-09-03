@@ -32,6 +32,7 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
+    - "create "
     - "--auth-Credentials"
     - ${{ inputs.GOOGLE_CREDENTIALS_Json }}
     - "--blogger-Id"
