@@ -49,3 +49,5 @@ jobs:
            Labels: 'azure,cloud,microsoft'
            ApiKey: ${{ secrets.ApiKey }}
 ```
+
+Sample Repo github action : https://github.com/SSanjeevi/rss-to-blogger-pusher
