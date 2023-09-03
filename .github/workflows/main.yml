@@ -1,0 +1,48 @@
+name: Rss-feed-to-Blogger-action
+description: Publish Rss feed posts As Posts in Blogger Website automatically
+author: SSanjeevi
+ 
+branding:
+  icon: 'cast'  
+  color: 'green'
+
+inputs:
+  GOOGLE_CREDENTIALS_Json:
+    description: 'Google auth service account credentials json secret'
+    required: true
+  BloggerId:
+    description: 'Blogger id'
+    required: true
+  RSSFeedUrl:
+    description: 'Rss feed url to copy from content'
+    required: true
+  FeedArticleStartCount:
+    description: 'Articles Start Count in the Feed'
+    required: true
+  FeedArticleEndCount:
+    description: 'Articles End Count in the Feed'
+    required: true
+  Labels:
+    description: 'List of string to be used as tags or labels for blog posts'
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x' # SDK Version to use; x will use the latest version of the 3.1 channel
+    
+    - run: dotnet build BlogRssFeed.csproj
+      working-directory: ${{ github.action_path }}/BlogRssFeed
+  
+    - uses: 'actions/checkout@v3'
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: '${{ inputs.GOOGLE_CREDENTIALS_Json }}'
+        
+    - run: dotnet run create --auth-Token ${{ steps.auth.outputs.access_token }} --blogger-Id '${{ inputs.BloggerId }}' --labels-array '${{ inputs.Labels }}' --rSS-Feed-Url '${{ inputs.RSSFeedUrl }}' --feed-Article-Start-Count '${{ inputs.FeedArticleStartCount }}' --feed-Article-End-Count '${{ inputs.FeedArticleEndCount }}'
+      working-directory: ${{ github.action_path }}/BlogRssFeed

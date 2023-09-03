@@ -1,4 +1,7 @@
-﻿public class BlogPost
+﻿
+namespace BlogRssFeed;
+
+public class BlogPost
 {
     public Author author { get; set; }
     public string content { get; set; }
