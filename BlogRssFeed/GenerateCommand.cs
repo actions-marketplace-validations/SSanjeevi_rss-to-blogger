@@ -23,17 +23,17 @@ namespace BlogRssFeed
                 this.Name = "Create Article";
                 this.Description = "Create Articles from rss";
 
-                CommandOption authCredentialsOption = this.Option("--auth-Credentials <authCredentialsOption>", "Auth Credentials json", CommandOptionType.SingleValue);
+                CommandOption authCredentialsOption = this.Option("--auth-Credentials <authCredentials>", "Auth Credentials json", CommandOptionType.SingleValue);
 
-                CommandOption bloggerIdOption = this.Option("--blogger-Id <bloggerIdOption>", "Blogger Id", CommandOptionType.SingleValue);
+                CommandOption bloggerIdOption = this.Option("--blogger-Id <bloggerId>", "Blogger Id", CommandOptionType.SingleValue);
 
-                CommandOption labelsOption = this.Option("--labels-array <labelsOption>", "Array of labels for article", CommandOptionType.MultipleValue);
+                CommandOption labelsOption = this.Option("--labels <labels>", "Array of labels for article", CommandOptionType.MultipleValue);
 
-                CommandOption rSSFeedUrlOption = this.Option("--rSS-Feed-Url <rSSFeedUrlOption>", "RSS Feed Url Id", CommandOptionType.SingleValue);
+                CommandOption rSSFeedUrlOption = this.Option("--rSS-Feed-Url <rSSFeedUrl>", "RSS Feed Url Id", CommandOptionType.SingleValue);
 
-                CommandOption feedArticleStartCountOption = this.Option("--feed-Article-Start-Count <feedArticleStartCountOption>", "feed Article Start Count", CommandOptionType.SingleValue);
+                CommandOption feedArticleStartCountOption = this.Option("--feed-Article-Start-Count <feedArticleStartCount>", "feed Article Start Count", CommandOptionType.SingleValue);
 
-                CommandOption feedArticleEndCountOption = this.Option("--feed-Article-End-Count <feedArticleEndCountOption>", "feed Article End Count", CommandOptionType.SingleValue);
+                CommandOption feedArticleEndCountOption = this.Option("--feed-Article-End-Count <feedArticleEndCount>", "feed Article End Count", CommandOptionType.SingleValue);
 
                 this.OnExecute(async () =>
                 {

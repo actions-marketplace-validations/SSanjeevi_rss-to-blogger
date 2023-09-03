@@ -34,7 +34,7 @@ runs:
     - ${{ inputs.GOOGLE_CREDENTIALS_Json }}
     - "--blogger-Id"
     - ${{ inputs.BloggerId }}
-    - "--labels-array"
+    - "--labels"
     - ${{ inputs.Labels }}
     - "--rSS-Feed-Url"
     - ${{ inputs.RSSFeedUrl }}
