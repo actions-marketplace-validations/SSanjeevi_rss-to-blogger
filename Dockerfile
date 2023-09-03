@@ -16,4 +16,4 @@ WORKDIR /BlogRssFeed
 COPY --from=build-env /BlogRssFeed/out .
 # Entrypoint **must** specify absolute path to the executable
 # because GitHub actions will pass in custom working directory
-ENTRYPOINT ["dotnet", "/BlogRssFeed/GitHubAction.dll"]
+ENTRYPOINT ["dotnet", "/BlogRssFeed/BlogRssFeed.dll"]

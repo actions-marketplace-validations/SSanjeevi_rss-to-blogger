@@ -27,21 +27,11 @@ inputs:
     required: false
 
 runs:
-  using: "composite"
-  steps:
-    - uses: 'actions/checkout@v3'
-
-    - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v1'
-      with:
-        credentials_json: '${{ inputs.GOOGLE_CREDENTIALS_Json }}'
-        
   using: "docker"
   image: "Dockerfile"
   args:
-    - "--auth-Token"
-    - ${{ steps.auth.outputs.access_token }}
+    - "--auth-Credentials"
+    - ${{ inputs.GOOGLE_CREDENTIALS_Json }}
     - "--blogger-Id"
     - ${{ inputs.BloggerId }}
     - "--labels-array"

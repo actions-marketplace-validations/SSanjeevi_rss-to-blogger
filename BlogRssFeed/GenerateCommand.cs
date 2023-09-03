@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.CommandLineUtils;
+﻿using Google.Apis.Auth.OAuth2;
+using Microsoft.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
+using System.IO;
 using System.ServiceModel.Syndication;
 using System.Xml;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace BlogRssFeed
 {
@@ -20,7 +23,7 @@ namespace BlogRssFeed
                 this.Name = "Create";
                 this.Description = "Create Name";
 
-                CommandOption authTokenOption = this.Option("--auth-Token <authTokenOption>", "Auth Token", CommandOptionType.SingleValue);
+                CommandOption authCredentialsOption = this.Option("--auth-Credentials <authCredentialsOption>", "Auth Credentials json", CommandOptionType.SingleValue);
 
                 CommandOption bloggerIdOption = this.Option("--blogger-Id <bloggerIdOption>", "Blogger Id", CommandOptionType.SingleValue);
 
@@ -39,7 +42,12 @@ namespace BlogRssFeed
                     {
                         labels = labelsOption.Values;
                     }
-                    authToken = authTokenOption?.Value();
+                    string authCredentials = authCredentialsOption?.Value();
+                    authToken = await GoogleCredential.FromJson(authCredentials)
+                    .CreateScoped("https://www.googleapis.com/auth/blogger") // Gathers scopes requested  
+                    .UnderlyingCredential // Gets the credentials  
+                    .GetAccessTokenForRequestAsync(); // Gets the Access Token  
+
                     bloggerApiUrl = "https://blogger.googleapis.com/v3/blogs/[YourBlogId]/posts?fetchBody=true&fetchImages=true&isDraft=false";
                     bloggerApiUrl = bloggerApiUrl.Replace("[YourBlogId]", bloggerIdOption?.Value());
                     rSSFeedUrl = rSSFeedUrlOption?.Value();
