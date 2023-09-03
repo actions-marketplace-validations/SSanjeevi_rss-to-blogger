@@ -25,7 +25,9 @@ inputs:
   Labels:
     description: 'List of string to be used as tags or labels for blog posts'
     required: false
-
+  ApiKey:
+    description: 'Google api key with blogger permission enabled'
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -42,3 +44,5 @@ runs:
     - ${{ inputs.FeedArticleStartCount }}
     - "--feed-Article-End-Count"
     - ${{ inputs.FeedArticleEndCount }}
+    - "--api-key"
+    - ${{ inputs.ApiKey }}
