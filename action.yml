@@ -32,4 +32,4 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - "create --auth-Credentials ${{ inputs.GOOGLE_CREDENTIALS_Json }} --blogger-Id ${{ inputs.BloggerId }} --labels ${{ inputs.Labels }} --rSS-Feed-Url ${{ inputs.RSSFeedUrl }} --feed-Article-Start-Count ${{ inputs.FeedArticleStartCount }} --feed-Article-End-Count ${{ inputs.FeedArticleEndCount }} --api-key ${{ inputs.ApiKey }}"
+    - "create --auth-Credentials '${{ inputs.GOOGLE_CREDENTIALS_Json }}' --blogger-Id '${{ inputs.BloggerId }}' --labels '${{ inputs.Labels }}' --rSS-Feed-Url '${{ inputs.RSSFeedUrl }}' --feed-Article-Start-Count '${{ inputs.FeedArticleStartCount }}' --feed-Article-End-Count '${{ inputs.FeedArticleEndCount }}' --api-key '${{ inputs.ApiKey }}'"
